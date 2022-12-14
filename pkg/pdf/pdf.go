@@ -13,9 +13,9 @@ import (
 )
 
 const (
-	defaultTopMargin   = 10
-	defaultLeftMargin  = 10
-	defaultRightMargin = 10
+	defaultTopMargin   = 0
+	defaultLeftMargin  = 0
+	defaultRightMargin = 0
 	defaultFontSize    = 16
 )
 
@@ -60,7 +60,7 @@ type Maroto interface {
 	SetPageMargins(left, top, right float64)
 	GetPageMargins() (left float64, top float64, right float64, bottom float64)
 	SetCompression(compress bool)
-
+	SetAutoPageBreak(auto bool, margin float64)
 	// Fonts
 	AddUTF8Font(familyStr string, styleStr consts.Style, fileStr string)
 	SetFontLocation(fontDirStr string)
@@ -303,6 +303,12 @@ func (s *PdfMaroto) SetAliasNbPages(alias string) {
 // Compression is on by default.
 func (s *PdfMaroto) SetCompression(compress bool) {
 	s.Pdf.SetCompression(compress)
+}
+
+// SetAutoPageBreak allows to set/unset compression for a page
+// SetAutoPageBreak is on by default.
+func (s *PdfMaroto) SetAutoPageBreak(auto bool, margin float64) {
+	s.Pdf.SetAutoPageBreak(auto, margin)
 }
 
 // GetBorder return the actual border value.
