@@ -13,9 +13,9 @@ import (
 )
 
 const (
-	defaultTopMargin   = 1
-	defaultLeftMargin  = 1
-	defaultRightMargin = 1
+	defaultTopMargin   = 10
+	defaultLeftMargin  = 10
+	defaultRightMargin = 10
 	defaultFontSize    = 16
 )
 
