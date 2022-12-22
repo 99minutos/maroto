@@ -33,6 +33,7 @@ type Maroto interface {
 	// Outside Col/Row Components
 	TableList(header []string, contents [][]string, prop ...props.TableList)
 	Line(spaceHeight float64, prop ...props.Line)
+	Ln(h float64)
 
 	// Inside Col/Row Components
 	Text(text string, prop ...props.Text)
@@ -217,6 +218,10 @@ func (s *PdfMaroto) GetCurrentPage() int {
 // GetCurrentOffset obtain the current offset in y axis.
 func (s *PdfMaroto) GetCurrentOffset() float64 {
 	return s.offsetY
+}
+
+func (s *PdfMaroto) Ln(l float64) {
+	s.Pdf.Ln(l)
 }
 
 // SetPageMargins overrides default margins (10,10,10)
